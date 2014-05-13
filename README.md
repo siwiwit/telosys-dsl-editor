@@ -1,4 +1,4 @@
-telolys-dsl
-===========
+telolys-dsl-editor
+====================
 
-Telosys DSL project
+Eclipse Plugin Editor for the DSL Edition
