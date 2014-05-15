@@ -15,32 +15,28 @@ public class XMLScanner extends RuleBasedScanner {
 	public XMLScanner(ColorManager manager) {
 		Properties prop = new Properties();
 		try {
-			InputStream in = getClass().getResourceAsStream("/test/config.properties");
+			InputStream in = getClass().getResourceAsStream(
+					"/test/config.properties");
 			prop.load(in);
+		} catch (IOException e) {
+
 		}
-		catch (IOException e){
-			
-		}
-		
-		IToken procInstr =
-			new Token(
-				new TextAttribute(
-					manager.getColor(IXMLColorConstants.PROC_INSTR)));
-		
-		String[] rgb = prop.get("ENTITY_COLOR").toString().split(",");
-		IToken entityRule =
-			new Token(
-				new TextAttribute(
-					manager.getColor(new RGB(Integer.parseInt(rgb[0]), 
-								Integer.parseInt(rgb[1]), 
-								Integer.parseInt(rgb[2])))));
+
+		IToken procInstr = new Token(new TextAttribute(
+				manager.getColor(IXMLColorConstants.PROC_INSTR)));
+
+		String[] entity_rgb = prop.get("ENTITY_COLOR").toString().split(",");
+		IToken entityRule = new Token(new TextAttribute(
+				manager.getColor(new RGB(Integer.parseInt(entity_rgb[0]),
+						Integer.parseInt(entity_rgb[1]), Integer
+								.parseInt(entity_rgb[2])))));
 
 		IRule[] rules = new IRule[2];
 		// Add generic whitespace rule.
 		rules[0] = new WhitespaceRule(new XMLWhitespaceDetector());
-		
-		//Entity Rule - MAJ		
-		rules[1] = new WordPatternRule(new IdentifierDetector(), "$([A-Z])", null, entityRule);
+
+		// Entity Rule - MAJ
+		rules[1] = new WordRule(new EntityDetector(), entityRule);
 
 		setRules(rules);
 	}
