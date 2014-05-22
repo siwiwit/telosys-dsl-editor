@@ -11,7 +11,14 @@ import org.eclipse.swt.widgets.Display;
 public class ColorManager {
 
 	protected Map fColorTable = new HashMap(10);
-
+	
+	public final static RGB entityColor = new RGB(255,0,0);
+	public final static RGB validationColor = new RGB(0,50,200);
+	public final static RGB commentColor = new RGB(50,200,50);
+	public final static RGB typeColor = new RGB(153,0,153);
+	public final static RGB stringColor = new RGB(0,50,200);
+	public final static RGB defaultColor = new RGB(0,0,0);
+	
 	public void dispose() {
 		Iterator e = fColorTable.values().iterator();
 		while (e.hasNext())
