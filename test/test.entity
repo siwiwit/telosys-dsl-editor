@@ -1,16 +1,3 @@
-// Enum
-Gender {
-  MALE ,
-  FEMALE 
-}
-
-Country : string {
-  FR = "fr" ,
-  UK = "uk" ,
-  IT = "it" 
-}
-
-
 // Entity
 Employee {
   id : string { @Id } ; 
