@@ -1,0 +1,23 @@
+// Enum
+Gender {
+  MALE ,
+  FEMALE 
+}
+
+Country : string {
+  FR = "fr" ,
+  UK = "uk" ,
+  IT = "it" 
+}
+
+
+// Entity
+Employee {
+  id : string { @Id } ; 
+  firstName : string ;
+  lastName : string ;
+  birthDate : date ;
+  country : #Country ; // ref 1 Country
+  projects : Project[] ; // ref N projects
+  jobId : Job.id ; // ref by id (useful ?)
+}
