@@ -39,14 +39,14 @@ public class XMLScanner extends RuleBasedScanner {
 		//Type Rule			
 		IToken typeRule =
 			new Token( new TextAttribute(manager.getColor(ColorManager.typeColor)));		
-		for (String str : Utils.getProperty("type").split(",")){
+		for (String str : Utils.getProperty("types").split(",")){
 			typewr.addWord(str, typeRule);
 		}
 		
 		//Validation Rule
 		IToken validationRule =
 			new Token( new TextAttribute(manager.getColor(ColorManager.validationColor)));		
-		for (String str : Utils.getProperty("validation.rule").split(",")){
+		for (String str : Utils.getProperty("validation.rules").split(",")){
 			typewr.addWord(str, validationRule);
 		}
 		rules[5] = typewr;
