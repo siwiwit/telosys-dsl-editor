@@ -1,11 +1,11 @@
-package org.telosys.tools.eclipse.plugin.editors;
+package org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner;
 
 import org.eclipse.jface.text.rules.IWordDetector;
 
 /**
  * A Velocity identifier aware word detector.
  */
-public class IdentifierDetector implements IWordDetector {
+public class EntityIdentifierDetector implements IWordDetector {
 
         /**
      * Determines if the specified character is permissible as the first

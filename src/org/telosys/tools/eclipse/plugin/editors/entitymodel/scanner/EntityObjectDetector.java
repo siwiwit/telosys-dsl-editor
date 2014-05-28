@@ -1,8 +1,8 @@
-package org.telosys.tools.eclipse.plugin.editors;
+package org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner;
 
 import org.eclipse.jface.text.rules.IWordDetector;
 
-public class EntityDetector implements IWordDetector {
+public class EntityObjectDetector implements IWordDetector {
 
 	@Override
 	public boolean isWordStart(char c) {
