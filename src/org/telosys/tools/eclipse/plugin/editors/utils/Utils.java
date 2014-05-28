@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.telosys.tools.eclipse.plugin.editors.EditorException;
+
 public class Utils {
     private static Properties properties;
 
