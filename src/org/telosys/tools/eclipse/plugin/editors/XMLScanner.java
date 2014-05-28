@@ -1,30 +1,13 @@
 package org.telosys.tools.eclipse.plugin.editors;
 
-import java.awt.Color;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Properties;
-
 import org.eclipse.jface.text.rules.*;
 import org.eclipse.jface.text.*;
-import org.eclipse.swt.graphics.RGB;
+
+import org.telosys.tools.eclipse.plugin.editors.utils.*;
 
 public class XMLScanner extends RuleBasedScanner {
 
-	public XMLScanner(ColorManager manager) {
-		Properties prop = new Properties();
-		try {
-			InputStream in = getClass().getResourceAsStream("/test/config.properties");
-			prop.load(in);
-		}
-		catch (IOException e){
-			
-		}
-		
-		IToken procInstr =new Token(
-				new TextAttribute(
-					manager.getColor(IXMLColorConstants.PROC_INSTR)));		
+	public XMLScanner(ColorManager manager) {	
 
 		IRule[] rules = new IRule[6];
 		
@@ -56,14 +39,14 @@ public class XMLScanner extends RuleBasedScanner {
 		//Type Rule			
 		IToken typeRule =
 			new Token( new TextAttribute(manager.getColor(ColorManager.typeColor)));		
-		for (String str : prop.getProperty("type").split(",")){
+		for (String str : Utils.getProperty("type").split(",")){
 			typewr.addWord(str, typeRule);
 		}
 		
 		//Validation Rule
 		IToken validationRule =
 			new Token( new TextAttribute(manager.getColor(ColorManager.validationColor)));		
-		for (String str : prop.getProperty("validation.rule").split(",")){
+		for (String str : Utils.getProperty("validation.rule").split(",")){
 			typewr.addWord(str, validationRule);
 		}
 		rules[5] = typewr;

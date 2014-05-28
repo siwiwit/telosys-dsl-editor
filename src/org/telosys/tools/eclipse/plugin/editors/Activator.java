@@ -1,4 +1,4 @@
-package telosys_dsl_editor;
+package org.telosys.tools.eclipse.plugin.editors;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
