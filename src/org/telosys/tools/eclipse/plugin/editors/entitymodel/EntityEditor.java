@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors;
+package org.telosys.tools.eclipse.plugin.editors.entitymodel;
 
 import java.io.IOException;
 import java.io.StringBufferInputStream;
@@ -11,20 +11,16 @@ import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 
 public class EntityEditor extends TextEditor {
 
-	private ColorManager colorManager;
-
 	public EntityEditor() {
 		super();
-		colorManager = new ColorManager();
-		setSourceViewerConfiguration(new EditorSourceViewerConfiguration());
-		setDocumentProvider(new XMLDocumentProvider());
+		setSourceViewerConfiguration(new EntityEditorConfiguration());
 	}
 
 	public void dispose() {
-		colorManager.dispose();
 		super.dispose();
 	}
 
+	@SuppressWarnings("deprecation")
 	protected void createActions() throws EditorException {
 		super.createActions();
 		ResourceBundle resourceBundle = null;

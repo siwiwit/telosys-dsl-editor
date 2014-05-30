@@ -1,9 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+package org.telosys.tools.eclipse.plugin.editors.entitymodel;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -12,18 +7,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class EntityEditorActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "telosys-dsl-editor"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static EntityEditorActivator plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public EntityEditorActivator() {
 	}
 
 	/*
@@ -50,7 +45,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static EntityEditorActivator getDefault() {
 		return plugin;
 	}
 

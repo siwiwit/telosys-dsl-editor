@@ -1,8 +1,7 @@
-package org.telosys.tools.eclipse.plugin.editors;
+package org.telosys.tools.eclipse.plugin.editors.entitymodel;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
-import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContentAssistant;
 import org.eclipse.jface.text.presentation.IPresentationReconciler;
 import org.eclipse.jface.text.presentation.PresentationReconciler;
@@ -10,8 +9,10 @@ import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
+import org.telosys.tools.eclipse.plugin.editors.completion.EntityEditorContentAssistProcessor;
+import org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner.EntityScanner;
 
-public class EditorSourceViewerConfiguration extends TextSourceViewerConfiguration {
+public class EntityEditorConfiguration extends TextSourceViewerConfiguration {
 	private ITokenScanner scanner = null;
 
 	@Override
@@ -32,7 +33,7 @@ public class EditorSourceViewerConfiguration extends TextSourceViewerConfigurati
 		if (assistant == null) {
 			assistant = new ContentAssistant();
 			assistant.setContentAssistProcessor(
-					new EditorContentAssistProcessor(),
+					new EntityEditorContentAssistProcessor(),
 					IDocument.DEFAULT_CONTENT_TYPE);
 			assistant
 					.setInformationControlCreator(getInformationControlCreator(sourceViewer));
@@ -43,7 +44,7 @@ public class EditorSourceViewerConfiguration extends TextSourceViewerConfigurati
 	private ITokenScanner getScanner() {
 		if (scanner == null){
 			ColorManager manager = new ColorManager();
-			scanner = new XMLScanner(manager);
+			scanner = new EntityScanner(manager);
 		}
 		return scanner;
 	}

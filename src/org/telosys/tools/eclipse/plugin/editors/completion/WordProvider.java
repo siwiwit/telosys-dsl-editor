@@ -3,17 +3,18 @@ package org.telosys.tools.eclipse.plugin.editors.completion;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.telosys.tools.eclipse.plugin.editors.utils.Utils;
+import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorException;
+import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorUtils;
 
 public class WordProvider {
 
-	public List<String> suggest(String word){
+	public List<String> suggest(String word) throws EntityEditorException{
 		ArrayList<String> wordBuffer = new ArrayList<String>();
-		for (String str : Utils.getProperty("types").split(",")){
+		for (String str : EntityEditorUtils.getProperty("types").split(",")){
 			if (str.startsWith(word))
 				wordBuffer.add(str);
 		}
-		for (String str : Utils.getProperty("validation.rules").split(",")){
+		for (String str : EntityEditorUtils.getProperty("validation.rules").split(",")){
 			if (str.startsWith(word))
 				wordBuffer.add(str);
 		}
