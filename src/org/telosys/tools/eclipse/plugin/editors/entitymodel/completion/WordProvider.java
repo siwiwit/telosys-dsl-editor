@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.completion;
+package org.telosys.tools.eclipse.plugin.editors.entitymodel.completion;
 
 import java.util.ArrayList;
 import java.util.List;

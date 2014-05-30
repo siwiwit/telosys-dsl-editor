@@ -9,7 +9,7 @@ import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
-import org.telosys.tools.eclipse.plugin.editors.completion.EntityEditorContentAssistProcessor;
+import org.telosys.tools.eclipse.plugin.editors.entitymodel.completion.EntityEditorContentAssistProcessor;
 import org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner.EntityScanner;
 
 public class EntityEditorConfiguration extends TextSourceViewerConfiguration {
