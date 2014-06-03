@@ -5,16 +5,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-
+/**
+ * Static tools.
+ * 
+ */
 public class EntityEditorUtils {
+	
     private static Properties properties;
 
     public static String getProperty(String propertyName) {
         if (properties == null) {
             EntityEditorUtils.loadPropertiesFile();
         }
-
-        return properties.getProperty(propertyName);
+        String property = properties.getProperty(propertyName);
+        if(null == property){
+        	throw new EntityEditorException("Incorrect property file. Missing property name : " + propertyName);
+        }
+        return property;
     }
 
     private static void loadPropertiesFile(){

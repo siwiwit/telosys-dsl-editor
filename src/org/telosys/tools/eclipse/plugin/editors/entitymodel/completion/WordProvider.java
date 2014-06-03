@@ -6,6 +6,10 @@ import java.util.List;
 import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorException;
 import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorUtils;
 
+/**
+ * Word provider for autocompletion.
+ * 
+ */
 public class WordProvider {
 
 	public List<String> suggest(String word) throws EntityEditorException{

@@ -2,6 +2,10 @@ package org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner;
 
 import org.eclipse.jface.text.rules.IWordDetector;
 
+/**
+ * Detector for default words.
+ * 
+ */
 public class EntityDefaultDetector implements IWordDetector{
 	
 	@Override

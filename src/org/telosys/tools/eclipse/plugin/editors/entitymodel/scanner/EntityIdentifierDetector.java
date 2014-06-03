@@ -2,9 +2,7 @@ package org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner;
 
 import org.eclipse.jface.text.rules.IWordDetector;
 
-/**
- * A Velocity identifier aware word detector.
- */
+
 public class EntityIdentifierDetector implements IWordDetector {
 
         /**

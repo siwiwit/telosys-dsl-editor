@@ -7,6 +7,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
+/**
+ * Provides a color for every content.
+ *
+ */
 public class ColorManager {
 
 	public final static RGB entityColor = new RGB(255,0,0);

@@ -9,6 +9,10 @@ import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.texteditor.ContentAssistAction;
 import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 
+/**
+ * Main class for the Entity Editor.
+ *
+ */
 public class EntityEditor extends TextEditor {
 
 	public EntityEditor() {

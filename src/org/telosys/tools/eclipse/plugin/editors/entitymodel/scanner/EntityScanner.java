@@ -14,6 +14,9 @@ import org.telosys.tools.eclipse.plugin.editors.entitymodel.ColorManager;
 import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorException;
 import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorUtils;
 
+/**
+ * Scanner rules.
+ */
 public class EntityScanner extends RuleBasedScanner {
 
 	public EntityScanner(ColorManager manager) throws EntityEditorException{	
