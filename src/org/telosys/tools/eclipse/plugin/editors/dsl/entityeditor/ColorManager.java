@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.entitymodel;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor;
 
 import java.util.HashMap;
 import java.util.Map;

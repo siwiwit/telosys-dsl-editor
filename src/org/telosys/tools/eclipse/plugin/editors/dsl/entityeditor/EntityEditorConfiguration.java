@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.entitymodel;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
@@ -9,8 +9,8 @@ import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
-import org.telosys.tools.eclipse.plugin.editors.entitymodel.completion.EntityEditorContentAssistProcessor;
-import org.telosys.tools.eclipse.plugin.editors.entitymodel.scanner.EntityScanner;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion.EntityEditorContentAssistProcessor;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.scanner.EntityScanner;
 
 public class EntityEditorConfiguration extends TextSourceViewerConfiguration {
 	private ITokenScanner scanner = null;
