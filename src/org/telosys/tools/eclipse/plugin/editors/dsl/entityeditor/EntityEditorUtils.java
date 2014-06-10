@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.eclipse.swt.graphics.RGB;
+
 /**
  * Static tools.
  * 
@@ -12,7 +14,7 @@ import java.util.Properties;
 public class EntityEditorUtils {
 	
     private static Properties properties;
-
+    
     public static String getProperty(String propertyName) {
         if (properties == null) {
             EntityEditorUtils.loadPropertiesFile();
@@ -35,4 +37,8 @@ public class EntityEditorUtils {
             throw new EntityEditorException("Error while loading the properties file : " + e.getMessage());
         }
     }
+    
+    public final static int DEFAULT = 0;
+    public final static int TYPE = 1;
+    public final static int ANNOTATION = 2;
 }

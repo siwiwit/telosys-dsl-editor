@@ -12,9 +12,11 @@ import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorUtils;
 
-public class EntityEditorContentAssistProcessor implements IContentAssistProcessor {
-
+public class EntityEditorContentAssistProcessor implements
+		IContentAssistProcessor {
+	
 	public EntityEditorContentAssistProcessor() {
 		this.wordProvider = new WordProvider();
 	}
@@ -26,14 +28,14 @@ public class EntityEditorContentAssistProcessor implements IContentAssistProcess
 			ITextViewer textViewer, int documentOffset) {
 		IDocument document = textViewer.getDocument();
 		int currOffset = documentOffset - 1;
-
+		
 		String currWord = "";
 		char currChar;
 
 		try {
 			while (currOffset > 0
-					&& !(Character.isWhitespace(currChar = document
-							.getChar(currOffset)) || currChar == ';')) {
+					&& !(( currChar = document.getChar(currOffset) )== ';' 
+					|| currChar == '\n' )) {
 				currWord = currChar + currWord;
 				currOffset--;
 			}
@@ -42,7 +44,24 @@ public class EntityEditorContentAssistProcessor implements IContentAssistProcess
 					+ e1.getMessage());
 		}
 
-		List<String> suggestions = wordProvider.suggest(currWord);
+		int context = chooseContext(currWord);
+		
+		String oldCurrWord = currWord;
+		String wordInProgressRev = "";
+		
+		while (oldCurrWord.length() != 0){
+			char lastChar = oldCurrWord.charAt(oldCurrWord.length() -1);
+			if (lastChar != ' ' && lastChar != '{' && lastChar != ':'){
+				wordInProgressRev += lastChar; 
+				oldCurrWord = oldCurrWord.substring(0, oldCurrWord.length() -1);
+			}
+			else 
+				break;
+		}
+		
+		currWord = new StringBuilder(wordInProgressRev).reverse().toString();
+		
+		List<String> suggestions = wordProvider.suggest(currWord, context);
 		ICompletionProposal[] proposals = null;
 
 		if (suggestions.size() > 0) {
@@ -101,5 +120,21 @@ public class EntityEditorContentAssistProcessor implements IContentAssistProcess
 	@Override
 	public String getErrorMessage() {
 		return lastError;
+	}
+
+	public int chooseContext(String word){
+		String reverseWord = new StringBuilder(word).reverse().toString();
+		int indexType = reverseWord.indexOf(':');
+		int indexAnnotation = reverseWord.indexOf('{');
+		if (indexType == -1 && indexAnnotation == -1){
+			return EntityEditorUtils.DEFAULT;
+		} else if (indexType == -1 && indexAnnotation != -1){
+			return EntityEditorUtils.ANNOTATION;
+		} else if (indexAnnotation == -1 && indexType != -1){
+			return EntityEditorUtils.TYPE;
+		} else {
+			return indexAnnotation < indexType ? EntityEditorUtils.ANNOTATION : EntityEditorUtils.TYPE;		
+		}
+			
 	}
 }
