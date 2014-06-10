@@ -16,11 +16,11 @@ public class WordProvider {
 		ArrayList<String> wordBuffer = new ArrayList<String>();
 		for (String str : EntityEditorUtils.getProperty("types").split(",")){
 			if (str.startsWith(word))
-				wordBuffer.add(str);
+				wordBuffer.add(str + " ");
 		}
 		for (String str : EntityEditorUtils.getProperty("validation.rules").split(",")){
 			if (str.startsWith(word))
-				wordBuffer.add(str);
+				wordBuffer.add(str + " ");
 		}
 		return wordBuffer;
 	}
