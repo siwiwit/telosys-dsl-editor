@@ -1,10 +1,10 @@
-package org.telosys.tools.eclipse.plugin.editors.entitymodel.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorException;
-import org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditorUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorUtils;
 
 /**
  * Word provider for autocompletion.

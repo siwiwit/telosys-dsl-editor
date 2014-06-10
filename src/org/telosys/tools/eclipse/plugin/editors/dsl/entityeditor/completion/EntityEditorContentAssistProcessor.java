@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.entitymodel.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
 
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
-import org.telosys.tools.eclipse.plugin.editors.entitymodel.EditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EditorException;
 
 public class EntityEditorContentAssistProcessor implements IContentAssistProcessor {
 

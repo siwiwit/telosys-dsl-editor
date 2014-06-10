@@ -8,7 +8,7 @@
             extensions="entity"
             icon="icons/sample.gif"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.telosys.tools.eclipse.plugin.editors.entitymodel.EntityEditor"
+            class="org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditor"
             id="org.telosys.tools.eclipse.plugin.editors.EntityEditor">
       </editor>
    </extension>
