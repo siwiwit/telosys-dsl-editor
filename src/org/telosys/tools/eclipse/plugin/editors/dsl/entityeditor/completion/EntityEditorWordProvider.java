@@ -51,6 +51,10 @@ public class EntityEditorWordProvider {
 		return wordBuffer;
 	}
 	
+	/**
+	 * 
+	 * @return List of entity and enum name in the same directory
+	 */
 	private List<String> getFileDirectory(){
 
 		List<String> fileList = new ArrayList<String>();
