@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.eclipse.swt.graphics.RGB;
-
 /**
  * Static tools.
  * 
@@ -38,6 +36,9 @@ public class EntityEditorUtils {
         }
     }
     
+    /*
+     * Constant variable for the context of auto-completion
+     */
     public final static int DEFAULT = 0;
     public final static int TYPE = 1;
     public final static int ANNOTATION = 2;

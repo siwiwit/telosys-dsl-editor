@@ -30,6 +30,7 @@ public class EntityScanner extends RuleBasedScanner {
 		IToken entityRule = 
 			new Token( new TextAttribute(manager.getColor(ColorManager.entityColor)));		
 		rules[1] = new WordRule(new EntityObjectDetector(), entityRule);
+		
 		//Entity Rule - Enum
 		rules[2] = new WordPatternRule(new EntityIdentifierDetector(), "#", null, entityRule);
 		
