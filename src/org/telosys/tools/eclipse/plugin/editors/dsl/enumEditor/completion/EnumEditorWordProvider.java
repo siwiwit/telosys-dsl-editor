@@ -1,10 +1,10 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.completion;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditorException;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditorUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorUtils;
 
 /**
  * Word provider for autocompletion.

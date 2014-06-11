@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
 
 import java.util.Iterator;
 import java.util.List;

@@ -8,7 +8,7 @@
             extensions="entity"
             icon="icons/entity.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditor"
+            class="org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditor"
             id="org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditor">
       </editor>
       
@@ -17,7 +17,7 @@
             extensions="enum"
             icon="icons/enum.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditor"
+            class="org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditor"
             id="org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditor">
       </editor>
    </extension>

@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.scanner;
 
 import org.eclipse.jface.text.rules.IWhitespaceDetector;
 

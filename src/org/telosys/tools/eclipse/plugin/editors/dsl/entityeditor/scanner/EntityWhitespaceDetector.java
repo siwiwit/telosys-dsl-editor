@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.scanner;
 
 import org.eclipse.jface.text.rules.IWhitespaceDetector;
 
