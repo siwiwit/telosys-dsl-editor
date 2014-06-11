@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor;
 
 import java.io.IOException;
 import java.io.StringBufferInputStream;
