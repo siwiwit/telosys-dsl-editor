@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.completion;
 
 import java.util.Iterator;
 import java.util.List;
@@ -13,13 +13,13 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorException;
 
-public class EntityEditorContentAssistProcessor implements IContentAssistProcessor {
+public class EnumEditorContentAssistProcessor implements IContentAssistProcessor {
 
-	public EntityEditorContentAssistProcessor() {
-		this.wordProvider = new EntityEditorWordProvider();
+	public EnumEditorContentAssistProcessor() {
+		this.wordProvider = new EnumEditorWordProvider();
 	}
 
-	private EntityEditorWordProvider wordProvider;
+	private EnumEditorWordProvider wordProvider;
 	private String lastError;
 
 	public ICompletionProposal[] computeCompletionProposals(

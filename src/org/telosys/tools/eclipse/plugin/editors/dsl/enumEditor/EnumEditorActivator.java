@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -7,18 +7,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class EntityEditorActivator extends AbstractUIPlugin {
+public class EnumEditorActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "telosys-dsl-entity-editor"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "telosys-dsl-enum-editor"; //$NON-NLS-1$
 
 	// The shared instance
-	private static EntityEditorActivator plugin;
+	private static EnumEditorActivator plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public EntityEditorActivator() {
+	public EnumEditorActivator() {
 	}
 
 	/*
@@ -45,7 +45,7 @@ public class EntityEditorActivator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static EntityEditorActivator getDefault() {
+	public static EnumEditorActivator getDefault() {
 		return plugin;
 	}
 
