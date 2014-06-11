@@ -31,8 +31,10 @@ public class EntityEditorWordProvider {
 					if (str.startsWith(word))
 						wordBuffer.add(str + " ");
 				}
-				List<String> fileDirectory = getFileDirectory();
-				wordBuffer.addAll(fileDirectory);
+				for (String str : getFileDirectory()){
+					if (str.startsWith(word))
+						wordBuffer.add(str);
+				}
 				break;
 				
 			case EditorsUtils.ANNOTATION:

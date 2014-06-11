@@ -51,7 +51,7 @@ public class EntityEditorContentAssistProcessor implements
 		
 		while (oldCurrWord.length() != 0){
 			char lastChar = oldCurrWord.charAt(oldCurrWord.length() -1);
-			if (lastChar != ' ' && lastChar != '{' && lastChar != ':'){
+			if (lastChar != ' ' && lastChar != '{' && lastChar != ':' && lastChar != ','){
 				wordInProgressRev += lastChar; 
 				oldCurrWord = oldCurrWord.substring(0, oldCurrWord.length() -1);
 			}
@@ -126,7 +126,8 @@ public class EntityEditorContentAssistProcessor implements
 		String reverseWord = new StringBuilder(word).reverse().toString();
 		int indexType = reverseWord.indexOf(':');
 		int indexAnnotation = reverseWord.indexOf('{');
-		if (indexType == -1 && indexAnnotation == -1){
+		if (reverseWord.charAt(0) == '[' 
+			|| indexType == -1 && indexAnnotation == -1){
 			return EditorsUtils.DEFAULT;
 		} else if (indexType == -1 && indexAnnotation != -1){
 			return EditorsUtils.ANNOTATION;

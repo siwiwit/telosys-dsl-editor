@@ -17,6 +17,7 @@ public class EntityDefaultDetector implements IWordDetector{
 	public boolean isWordPart(char c) {
 		return !(c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == ','
 			|| c == '#' || c == '@' || c == '/' ||  c== '(' || c== '"' 
-			|| c == ';' || c == '{' || c == '}' || c == ':' || c == ')');
+			|| c == ';' || c == '{' || c == '}' || c == ':' || c == ')'
+			|| c == '[' || c == ']');
 	}
 }
