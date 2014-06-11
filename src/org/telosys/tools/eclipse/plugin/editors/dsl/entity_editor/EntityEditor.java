@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor;
 
 import java.io.IOException;
 import java.io.StringBufferInputStream;
@@ -11,15 +11,15 @@ import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
 
 /**
- * Main class for the Enum Editor.
+ * Main class for the Entity Editor.
  *
  */
 @SuppressWarnings("deprecation")
-public class EnumEditor extends TextEditor {
+public class EntityEditor extends TextEditor {
 
-	public EnumEditor() {
+	public EntityEditor() {
 		super();
-		setSourceViewerConfiguration(new EnumEditorConfiguration());
+		setSourceViewerConfiguration(new EntityEditorConfiguration());
 	}
 
 	public void dispose() {

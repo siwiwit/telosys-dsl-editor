@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
@@ -10,10 +10,10 @@ import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.ColorManager;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.completion.EnumEditorContentAssistProcessor;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.scanner.EnumScanner;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.completion.EntityEditorContentAssistProcessor;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.scanner.EntityScanner;
 
-public class EnumEditorConfiguration extends TextSourceViewerConfiguration {
+public class EntityEditorConfiguration extends TextSourceViewerConfiguration {
 	private ITokenScanner scanner = null;
 
 	@Override
@@ -34,7 +34,7 @@ public class EnumEditorConfiguration extends TextSourceViewerConfiguration {
 		if (assistant == null) {
 			assistant = new ContentAssistant();
 			assistant.setContentAssistProcessor(
-					new EnumEditorContentAssistProcessor(),
+					new EntityEditorContentAssistProcessor(),
 					IDocument.DEFAULT_CONTENT_TYPE);
 			assistant
 					.setInformationControlCreator(getInformationControlCreator(sourceViewer));
@@ -45,7 +45,7 @@ public class EnumEditorConfiguration extends TextSourceViewerConfiguration {
 	private ITokenScanner getScanner() {
 		if (scanner == null){
 			ColorManager manager = new ColorManager();
-			scanner = new EnumScanner(manager);
+			scanner = new EntityScanner(manager);
 		}
 		return scanner;
 	}

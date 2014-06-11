@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.scanner;
 
 import org.eclipse.jface.text.rules.IWordDetector;
 
@@ -6,7 +6,7 @@ import org.eclipse.jface.text.rules.IWordDetector;
  * Detector for Entity declaration.
  * 
  */
-public class EnumObjectDetector implements IWordDetector {
+public class EntityObjectDetector implements IWordDetector {
 
 	@Override
 	public boolean isWordStart(char c) {

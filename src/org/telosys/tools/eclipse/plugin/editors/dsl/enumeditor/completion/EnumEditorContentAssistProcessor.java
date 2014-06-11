@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.completion;
 
 import java.util.Iterator;
 import java.util.List;

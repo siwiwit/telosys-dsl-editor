@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.completion;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -14,7 +14,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.EntityEditorException;
 
 
 /**

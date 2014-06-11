@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.scanner;
 
 import org.eclipse.jface.text.rules.IWordDetector;
 

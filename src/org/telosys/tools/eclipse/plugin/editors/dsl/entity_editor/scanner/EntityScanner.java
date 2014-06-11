@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.scanner;
 
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.EndOfLineRule;
@@ -12,7 +12,7 @@ import org.eclipse.jface.text.rules.WordPatternRule;
 import org.eclipse.jface.text.rules.WordRule;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.ColorManager;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor.EntityEditorException;
 
 /**
  * Scanner rules.

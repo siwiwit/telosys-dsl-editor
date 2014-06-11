@@ -1,10 +1,10 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.completion;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.EnumEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
 
 
 /**

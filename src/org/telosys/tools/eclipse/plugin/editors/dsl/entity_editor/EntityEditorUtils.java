@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entity_editor;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
