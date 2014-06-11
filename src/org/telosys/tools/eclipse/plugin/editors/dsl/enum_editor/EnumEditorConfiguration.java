@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
@@ -10,8 +10,8 @@ import org.eclipse.jface.text.rules.ITokenScanner;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.ColorManager;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.completion.EnumEditorContentAssistProcessor;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.scanner.EnumScanner;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.completion.EnumEditorContentAssistProcessor;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.scanner.EnumScanner;
 
 public class EnumEditorConfiguration extends TextSourceViewerConfiguration {
 	private ITokenScanner scanner = null;

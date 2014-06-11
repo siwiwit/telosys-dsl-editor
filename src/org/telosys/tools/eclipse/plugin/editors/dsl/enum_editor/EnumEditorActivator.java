@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

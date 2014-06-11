@@ -15,7 +15,7 @@
             extensions="enum"
             icon="icons/enum.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditor"
+            class="org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor.EnumEditor"
             id="org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditor">
       </editor>
    </extension>

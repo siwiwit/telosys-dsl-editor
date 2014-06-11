@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enum_editor;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
