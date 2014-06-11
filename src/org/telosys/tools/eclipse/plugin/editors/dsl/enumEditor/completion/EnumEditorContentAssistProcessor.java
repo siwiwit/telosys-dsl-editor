@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.completion;
 
 import java.util.Iterator;
 import java.util.List;
@@ -12,30 +12,28 @@ import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorException;
-import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
 
-public class EntityEditorContentAssistProcessor implements
-		IContentAssistProcessor {
-	
-	public EntityEditorContentAssistProcessor() {
-		this.wordProvider = new EntityEditorWordProvider();
+public class EnumEditorContentAssistProcessor implements IContentAssistProcessor {
+
+	public EnumEditorContentAssistProcessor() {
+		this.wordProvider = new EnumEditorWordProvider();
 	}
 
-	private EntityEditorWordProvider wordProvider;
+	private EnumEditorWordProvider wordProvider;
 	private String lastError;
 
 	public ICompletionProposal[] computeCompletionProposals(
 			ITextViewer textViewer, int documentOffset) {
 		IDocument document = textViewer.getDocument();
 		int currOffset = documentOffset - 1;
-		
+
 		String currWord = "";
 		char currChar;
 
 		try {
 			while (currOffset > 0
-					&& !(( currChar = document.getChar(currOffset) )== ';' 
-					|| currChar == '\n' )) {
+					&& !(Character.isWhitespace(currChar = document
+							.getChar(currOffset)) || currChar == ';')) {
 				currWord = currChar + currWord;
 				currOffset--;
 			}
@@ -44,24 +42,7 @@ public class EntityEditorContentAssistProcessor implements
 					+ e1.getMessage());
 		}
 
-		int context = chooseContext(currWord);
-		
-		String oldCurrWord = currWord;
-		String wordInProgressRev = "";
-		
-		while (oldCurrWord.length() != 0){
-			char lastChar = oldCurrWord.charAt(oldCurrWord.length() -1);
-			if (lastChar != ' ' && lastChar != '{' && lastChar != ':'){
-				wordInProgressRev += lastChar; 
-				oldCurrWord = oldCurrWord.substring(0, oldCurrWord.length() -1);
-			}
-			else 
-				break;
-		}
-		
-		currWord = new StringBuilder(wordInProgressRev).reverse().toString();
-		
-		List<String> suggestions = wordProvider.suggest(currWord, context);
+		List<String> suggestions = wordProvider.suggest(currWord);
 		ICompletionProposal[] proposals = null;
 
 		if (suggestions.size() > 0) {
@@ -120,21 +101,5 @@ public class EntityEditorContentAssistProcessor implements
 	@Override
 	public String getErrorMessage() {
 		return lastError;
-	}
-
-	public int chooseContext(String word){
-		String reverseWord = new StringBuilder(word).reverse().toString();
-		int indexType = reverseWord.indexOf(':');
-		int indexAnnotation = reverseWord.indexOf('{');
-		if (indexType == -1 && indexAnnotation == -1){
-			return EditorsUtils.DEFAULT;
-		} else if (indexType == -1 && indexAnnotation != -1){
-			return EditorsUtils.ANNOTATION;
-		} else if (indexAnnotation == -1 && indexType != -1){
-			return EditorsUtils.TYPE;
-		} else {
-			return indexAnnotation < indexType ? EditorsUtils.ANNOTATION : EditorsUtils.TYPE;		
-		}
-			
 	}
 }

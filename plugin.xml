@@ -2,12 +2,21 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            name="Telosys Tools Editor"
+            name="Telosys Tools Entity Editor"
             extensions="entity"
-            icon="icons/sample.gif"
+            icon="icons/entity.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditor"
-            id="org.telosys.tools.eclipse.plugin.editors.EntityEditor">
+            class="org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditor"
+            id="org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditor">
+      </editor>
+      
+      <editor
+            name="Telosys Tools Enum Editor"
+            extensions="enum"
+            icon="icons/enum.png"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditor"
+            id="org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditor">
       </editor>
    </extension>
 

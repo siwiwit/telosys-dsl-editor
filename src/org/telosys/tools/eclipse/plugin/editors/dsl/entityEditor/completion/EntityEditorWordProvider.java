@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.completion;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -13,20 +13,20 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditorException;
 
 /**
  * Word provider for autocompletion.
  * 
  */
-public class WordProvider {
+public class EntityEditorWordProvider {
 
 	public List<String> suggest(String word, int context) throws EntityEditorException{
 		ArrayList<String> wordBuffer = new ArrayList<String>();
 		switch (context){
-			case EntityEditorUtils.TYPE:
-				for (String str : EntityEditorUtils.getProperty("types").split(",")){
+			case EditorsUtils.TYPE:
+				for (String str : EditorsUtils.getProperty("entity.types").split(",")){
 					if (str.startsWith(word))
 						wordBuffer.add(str + " ");
 				}
@@ -34,8 +34,8 @@ public class WordProvider {
 				wordBuffer.addAll(fileDirectory);
 				break;
 				
-			case EntityEditorUtils.ANNOTATION:
-				for (String str : EntityEditorUtils.getProperty("validation.rules").split(",")){
+			case EditorsUtils.ANNOTATION:
+				for (String str : EditorsUtils.getProperty("validation.rules").split(",")){
 					if (str.startsWith(word))
 						wordBuffer.add(str);
 				}
@@ -44,7 +44,7 @@ public class WordProvider {
 			default:
 					break;
 		}		
-		
+
 		return wordBuffer;
 	}
 	

@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.scanner;
 
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.EndOfLineRule;
@@ -10,9 +10,9 @@ import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordPatternRule;
 import org.eclipse.jface.text.rules.WordRule;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.ColorManager;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.common.ColorManager;
+import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditorException;
 
 /**
  * Scanner rules.
@@ -32,7 +32,7 @@ public class EntityScanner extends RuleBasedScanner {
 		rules[1] = new WordRule(new EntityObjectDetector(), entityRule);
 		
 		//Entity Rule - Enum
-		rules[2] = new WordPatternRule(new EntityIdentifierDetector(), "#", null, entityRule);
+		rules[2] = new WordPatternRule(new EntityEnumDetector(), "#", null, entityRule);
 		
 		//Comment rule
 		IToken commentRule =
@@ -52,14 +52,14 @@ public class EntityScanner extends RuleBasedScanner {
 		//Type Rule			
 		IToken typeRule =
 			new Token( new TextAttribute(manager.getColor(ColorManager.typeColor)));
-		for (String str : EntityEditorUtils.getProperty("types").split(",")){
+		for (String str : EditorsUtils.getProperty("entity.types").split(",")){
 			typewr.addWord(str, typeRule);
 		}
 		
 		//Validation Rule
 		IToken validationRule =
 			new Token( new TextAttribute(manager.getColor(ColorManager.validationColor)));
-		for (String str : EntityEditorUtils.getProperty("validation.rules").split(",")){
+		for (String str : EditorsUtils.getProperty("validation.rules").split(",")){
 			typewr.addWord(str, validationRule);
 		}			
 		
