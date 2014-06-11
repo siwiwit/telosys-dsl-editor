@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -14,7 +14,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
-import org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.EntityEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
+
 
 /**
  * Word provider for autocompletion.

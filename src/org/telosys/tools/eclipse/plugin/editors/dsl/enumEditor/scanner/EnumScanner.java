@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.scanner;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.scanner;
 
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.EndOfLineRule;
@@ -11,7 +11,8 @@ import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.ColorManager;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
-import org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.EnumEditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
+
 
 /**
  * Scanner rules.

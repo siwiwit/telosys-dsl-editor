@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.completion;
 
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
-import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
 
 public class EnumEditorContentAssistProcessor implements IContentAssistProcessor {
 
@@ -38,7 +38,7 @@ public class EnumEditorContentAssistProcessor implements IContentAssistProcessor
 				currOffset--;
 			}
 		} catch (org.eclipse.jface.text.BadLocationException e1) {
-			throw new EditorException("Error while proposing a word : "
+			throw new EditorsException("Error while proposing a word : "
 					+ e1.getMessage());
 		}
 
@@ -50,7 +50,7 @@ public class EnumEditorContentAssistProcessor implements IContentAssistProcessor
 				proposals = buildProposals(suggestions, currWord,
 						documentOffset - currWord.length());
 			} catch (Exception e) {
-				throw new EditorException("Error while proposing a word : "
+				throw new EditorsException("Error while proposing a word : "
 						+ e.getMessage());
 			}
 		}

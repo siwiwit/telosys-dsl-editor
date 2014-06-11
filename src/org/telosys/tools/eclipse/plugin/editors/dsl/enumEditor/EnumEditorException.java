@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.enumEditor;
+package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor;
 
 /**
  * Entity Editor main exception.

@@ -1,4 +1,4 @@
-package org.telosys.tools.eclipse.plugin.editors.dsl.entityEditor.completion;
+package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
 
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
-import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
 
 public class EntityEditorContentAssistProcessor implements
@@ -40,7 +40,7 @@ public class EntityEditorContentAssistProcessor implements
 				currOffset--;
 			}
 		} catch (org.eclipse.jface.text.BadLocationException e1) {
-			throw new EditorException("Error while proposing a word : "
+			throw new EditorsException("Error while proposing a word : "
 					+ e1.getMessage());
 		}
 
@@ -69,7 +69,7 @@ public class EntityEditorContentAssistProcessor implements
 				proposals = buildProposals(suggestions, currWord,
 						documentOffset - currWord.length());
 			} catch (Exception e) {
-				throw new EditorException("Error while proposing a word : "
+				throw new EditorsException("Error while proposing a word : "
 						+ e.getMessage());
 			}
 		}
