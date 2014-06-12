@@ -28,19 +28,22 @@ public class EntityEditorWordProvider {
 		switch (context){
 			case EditorsUtils.TYPE:
 				for (String str : EditorsUtils.getProperty("entity.types").split(",")){
-					if (str.startsWith(word))
+					if (str.startsWith(word)){
 						wordBuffer.add(str + " ");
+					}
 				}
 				for (String str : getFileDirectory()){
-					if (str.startsWith(word))
+					if (str.startsWith(word)){
 						wordBuffer.add(str);
+					}
 				}
 				break;
 				
 			case EditorsUtils.ANNOTATION:
 				for (String str : EditorsUtils.getProperty("validation.rules").split(",")){
-					if (str.startsWith(word))
+					if (str.startsWith(word)){
 						wordBuffer.add(str);
+					}
 				}
 				break;
 				

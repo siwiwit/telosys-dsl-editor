@@ -71,8 +71,9 @@ public class EntityEditorContentAssistProcessor implements
 				wordInProgressRev += lastChar;
 				oldCurrWord = oldCurrWord
 						.substring(0, oldCurrWord.length() - 1);
-			} else
+			} else {
 				break;
+			}
 		}
 
 		currWord = new StringBuilder(wordInProgressRev).reverse().toString();

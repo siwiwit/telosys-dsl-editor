@@ -13,6 +13,9 @@ public class EditorsUtils {
 	
     private static Properties properties;
     
+    private EditorsUtils() {    	
+    }
+    
     public static String getProperty(String propertyName) {
         if (properties == null) {
             EditorsUtils.loadPropertiesFile();
@@ -39,7 +42,7 @@ public class EditorsUtils {
     /*
      * Constant variable for the context of auto-completion
      */
-    public final static int DEFAULT = 0;
-    public final static int TYPE = 1;
-    public final static int ANNOTATION = 2;
+    public static final int DEFAULT = 0;
+    public static final int TYPE = 1;
+    public static final int ANNOTATION = 2;
 }
