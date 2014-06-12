@@ -43,7 +43,7 @@ public class EnumEditorConfiguration extends TextSourceViewerConfiguration {
 	}
 
 	private ITokenScanner getScanner() {
-		if (scanner == null){
+		if (scanner == null) {
 			ColorManager manager = new ColorManager();
 			scanner = new EnumScanner(manager);
 		}

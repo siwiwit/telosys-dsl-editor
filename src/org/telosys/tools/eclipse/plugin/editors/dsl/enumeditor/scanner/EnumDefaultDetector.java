@@ -6,10 +6,10 @@ import org.eclipse.jface.text.rules.IWordDetector;
  * Detector for default words.
  * 
  */
-public class EnumDefaultDetector implements IWordDetector{
-	
+public class EnumDefaultDetector implements IWordDetector {
+
 	private final String nonAccept = " \t\n\r#@/(\"";
-	
+
 	@Override
 	public boolean isWordStart(char c) {
 		return true;

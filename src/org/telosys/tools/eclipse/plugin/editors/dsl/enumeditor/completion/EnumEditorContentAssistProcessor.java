@@ -14,7 +14,8 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
 
-public class EnumEditorContentAssistProcessor implements IContentAssistProcessor {
+public class EnumEditorContentAssistProcessor implements
+		IContentAssistProcessor {
 
 	public EnumEditorContentAssistProcessor() {
 		this.wordProvider = new EnumEditorWordProvider();

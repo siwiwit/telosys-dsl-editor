@@ -9,7 +9,7 @@ import java.util.Properties;
  * Static tools.
  * 
  */
-public class EditorsUtils {
+public final class EditorsUtils {
 	
     private static Properties properties;
     

@@ -13,7 +13,6 @@ import org.telosys.tools.eclipse.plugin.editors.dsl.common.ColorManager;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
 import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
 
-
 /**
  * Scanner rules.
  */
@@ -26,9 +25,9 @@ public class EnumScanner extends RuleBasedScanner {
 		// Add generic whitespace rule.
 		rules[0] = new WhitespaceRule(new EnumWhitespaceDetector());
 
-		//Entity Rule - MAJ 
-		IToken entityRule = 
-			new Token( new TextAttribute(manager.getColor(ColorManager.ENTITY_COLOR)));		
+		// Entity Rule - MAJ
+		IToken entityRule = new Token(new TextAttribute(
+				manager.getColor(ColorManager.ENTITY_COLOR)));
 		rules[1] = new WordRule(new EnumObjectDetector(), entityRule);
 
 		// Comment rule
@@ -56,6 +55,6 @@ public class EnumScanner extends RuleBasedScanner {
 		rules[4] = typewr;
 
 		setRules(rules);
-		
+
 	}
 }

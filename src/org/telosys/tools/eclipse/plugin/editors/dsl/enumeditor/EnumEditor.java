@@ -12,7 +12,7 @@ import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
 
 /**
  * Main class for the Enum Editor.
- *
+ * 
  */
 @SuppressWarnings("deprecation")
 public class EnumEditor extends TextEditor {
@@ -30,7 +30,8 @@ public class EnumEditor extends TextEditor {
 					new StringBufferInputStream(
 							"ContentAssistProposal.label=Content assist\nContentAssistProposal.tooltip=Content assist\nContentAssistProposal.description=Provides Content Assistance"));
 		} catch (IOException e) {
-			throw new EditorsException("Error while creating the autocompletion : " + e);
+			throw new EditorsException(
+					"Error while creating the autocompletion : " + e);
 		}
 		ContentAssistAction action = new ContentAssistAction(resourceBundle,
 				"ContentAssistProposal.", this);
