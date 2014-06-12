@@ -10,4 +10,5 @@ public class EditorsException extends RuntimeException {
     public EditorsException(String message) {
         super(message);
     }
+
 }

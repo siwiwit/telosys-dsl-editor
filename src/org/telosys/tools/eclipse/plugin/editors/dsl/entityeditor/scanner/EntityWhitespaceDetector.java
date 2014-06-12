@@ -4,9 +4,9 @@ import org.eclipse.jface.text.rules.IWhitespaceDetector;
 
 public class EntityWhitespaceDetector implements IWhitespaceDetector {
 
-    private final String nonAccept = " \t\n\r:";
+    private static final String NON_ACCEPT = " \t\n\r:";
 
     public boolean isWhitespace(char c) {
-        return nonAccept.indexOf(c) != -1;
+        return NON_ACCEPT.indexOf(c) != -1;
     }
 }
