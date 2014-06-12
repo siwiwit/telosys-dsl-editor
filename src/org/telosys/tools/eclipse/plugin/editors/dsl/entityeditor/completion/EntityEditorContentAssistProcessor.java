@@ -3,6 +3,7 @@ package org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.completion;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.contentassist.CompletionProposal;
@@ -11,12 +12,12 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
-import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
+import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
 
 public class EntityEditorContentAssistProcessor implements
 		IContentAssistProcessor {
-	
+
 	public EntityEditorContentAssistProcessor() {
 		this.wordProvider = new EntityEditorWordProvider();
 	}
@@ -28,39 +29,64 @@ public class EntityEditorContentAssistProcessor implements
 			ITextViewer textViewer, int documentOffset) {
 		IDocument document = textViewer.getDocument();
 		int currOffset = documentOffset - 1;
-		
-		String currWord = "";
-		char currChar;
 
+		String currWord = "";
+		
 		try {
+			char currChar = document.getChar(currOffset);
+			
 			while (currOffset > 0
-					&& !(( currChar = document.getChar(currOffset) )== ';' 
-					|| currChar == '\n' )) {
+					&& !(currChar == ';' || currChar == '\n')) {
 				currWord = currChar + currWord;
 				currOffset--;
+				currChar = document.getChar(currOffset);
 			}
-		} catch (org.eclipse.jface.text.BadLocationException e1) {
-			throw new EditorsException("Error while proposing a word : "
-					+ e1.getMessage());
+		} catch (BadLocationException e1) {
+			throw new EntityEditorException("Error while proposing a word : " + e1);
 		}
 
+		/*
+		 * // First part of Method which could replace the metho to get context
+		 *  
+		 * try { while (currOffset > 0 && !(Character.isWhitespace(currChar =
+		 * document .getChar(currOffset)) || currChar == ';')) { currWord =
+		 * currChar + currWord; currOffset--; }
+		 * 
+		 * int nbLign = document.getLineOfOffset(currOffset); int taille =
+		 * document.getLineLength(nbLign); context =
+		 * chooseContext(document.get(documentOffset-taille, taille));
+		 * 
+		 * } catch (BadLocationException e1) { throw new
+		 * EditorsException("Error while proposing a word : " + e1); }
+		 */
 		int context = chooseContext(currWord);
-		
+
 		String oldCurrWord = currWord;
 		String wordInProgressRev = "";
-		
-		while (oldCurrWord.length() != 0){
-			char lastChar = oldCurrWord.charAt(oldCurrWord.length() -1);
-			if (lastChar != ' ' && lastChar != '{' && lastChar != ':' && lastChar != ','){
-				wordInProgressRev += lastChar; 
-				oldCurrWord = oldCurrWord.substring(0, oldCurrWord.length() -1);
-			}
-			else 
+
+		while (oldCurrWord.length() != 0) {
+			char lastChar = oldCurrWord.charAt(oldCurrWord.length() - 1);
+			if (lastChar != ' ' && lastChar != '{' && lastChar != ':'
+					&& lastChar != ',') {
+				wordInProgressRev += lastChar;
+				oldCurrWord = oldCurrWord
+						.substring(0, oldCurrWord.length() - 1);
+			} else
 				break;
 		}
-		
+
 		currWord = new StringBuilder(wordInProgressRev).reverse().toString();
-		
+
+		/*
+		 * // Second part of Method which could replace the metho to get context
+		 * 
+		 * try { int nbLign = document.getLineOfOffset(currOffset); int taille =
+		 * document.getLineLength(nbLign); context =
+		 * chooseContext(document.get(documentOffset-taille, taille)); } catch
+		 * (BadLocationException e1) { // TODO Auto-generated catch block
+		 * e1.printStackTrace(); }
+		 */
+
 		List<String> suggestions = wordProvider.suggest(currWord, context);
 		ICompletionProposal[] proposals = null;
 
@@ -69,8 +95,8 @@ public class EntityEditorContentAssistProcessor implements
 				proposals = buildProposals(suggestions, currWord,
 						documentOffset - currWord.length());
 			} catch (Exception e) {
-				throw new EditorsException("Error while proposing a word : "
-						+ e.getMessage());
+				throw new EntityEditorException("Error while proposing a word : "
+						+ e);
 			}
 		}
 		return proposals;
@@ -122,20 +148,21 @@ public class EntityEditorContentAssistProcessor implements
 		return lastError;
 	}
 
-	public int chooseContext(String word){
+	public int chooseContext(String word) {
 		String reverseWord = new StringBuilder(word).reverse().toString();
 		int indexType = reverseWord.indexOf(':');
 		int indexAnnotation = reverseWord.indexOf('{');
-		if (reverseWord.charAt(0) == '[' 
-			|| indexType == -1 && indexAnnotation == -1){
+		if (reverseWord.charAt(0) == '[' || indexType == -1
+				&& indexAnnotation == -1) {
 			return EditorsUtils.DEFAULT;
-		} else if (indexType == -1 && indexAnnotation != -1){
+		} else if (indexType == -1 && indexAnnotation != -1) {
 			return EditorsUtils.ANNOTATION;
-		} else if (indexAnnotation == -1 && indexType != -1){
+		} else if (indexAnnotation == -1 && indexType != -1) {
 			return EditorsUtils.TYPE;
 		} else {
-			return indexAnnotation < indexType ? EditorsUtils.ANNOTATION : EditorsUtils.TYPE;		
+			return indexAnnotation < indexType ? EditorsUtils.ANNOTATION
+					: EditorsUtils.TYPE;
 		}
-			
+
 	}
 }

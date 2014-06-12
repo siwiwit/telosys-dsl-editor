@@ -28,27 +28,27 @@ public class EnumScanner extends RuleBasedScanner {
 
 		//Entity Rule - MAJ 
 		IToken entityRule = 
-			new Token( new TextAttribute(manager.getColor(ColorManager.entityColor)));		
+			new Token( new TextAttribute(manager.getColor(ColorManager.ENTITY_COLOR)));		
 		rules[1] = new WordRule(new EnumObjectDetector(), entityRule);
 
 		// Comment rule
 		IToken commentRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.commentColor)));
+				manager.getColor(ColorManager.COMMENT_COLOR)));
 		rules[2] = new EndOfLineRule("//", commentRule);
 
 		// String rule
 		IToken stringRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.stringColor)));
+				manager.getColor(ColorManager.STRING_COLOR)));
 		rules[3] = new SingleLineRule("\"", "\"", stringRule);
 
 		// Default Rule
 		IToken defaultRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.defaultColor)));
+				manager.getColor(ColorManager.DEFAULT_COLOR)));
 		WordRule typewr = new WordRule(new EnumDefaultDetector(), defaultRule);
 
 		// Type Rule
 		IToken typeRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.typeColor)));
+				manager.getColor(ColorManager.TYPE_COLOR)));
 		for (String str : EditorsUtils.getProperty("enum.types").split(",")) {
 			typewr.addWord(str, typeRule);
 		}

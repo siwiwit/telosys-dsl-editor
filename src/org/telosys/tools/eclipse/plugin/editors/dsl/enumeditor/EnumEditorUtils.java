@@ -30,9 +30,9 @@ public class EnumEditorUtils {
             InputStream propertiesStream = EnumEditorUtils.class.getResourceAsStream("/config.properties");
             properties.load(propertiesStream);
         } catch (FileNotFoundException e) {
-            throw new EnumEditorException("Error while loading the properties file : " + e.getMessage());
+            throw new EnumEditorException("Error while loading the properties file : " + e);
         } catch (IOException e) {
-            throw new EnumEditorException("Error while loading the properties file : " + e.getMessage());
+            throw new EnumEditorException("Error while loading the properties file : " + e);
         }
     }
 }

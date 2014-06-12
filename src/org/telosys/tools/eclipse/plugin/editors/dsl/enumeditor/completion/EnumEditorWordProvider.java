@@ -17,7 +17,7 @@ public class EnumEditorWordProvider {
 		ArrayList<String> wordBuffer = new ArrayList<String>();
 		for (String str : EditorsUtils.getProperty("enum.types").split(",")){
 			if (str.startsWith(word))
-				wordBuffer.add(str);
+				wordBuffer.add(str + " ");
 		}
 		return wordBuffer;
 	}

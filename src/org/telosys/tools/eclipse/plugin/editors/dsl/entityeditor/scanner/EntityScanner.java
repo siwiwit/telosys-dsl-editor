@@ -28,7 +28,7 @@ public class EntityScanner extends RuleBasedScanner {
 		
 		//Entity Rule - MAJ 
 		IToken entityRule = 
-			new Token( new TextAttribute(manager.getColor(ColorManager.entityColor)));		
+			new Token( new TextAttribute(manager.getColor(ColorManager.ENTITY_COLOR)));		
 		rules[1] = new WordRule(new EntityObjectDetector(), entityRule);
 		
 		//Entity Rule - Enum
@@ -36,29 +36,29 @@ public class EntityScanner extends RuleBasedScanner {
 		
 		//Comment rule
 		IToken commentRule =
-			new Token(new TextAttribute( manager.getColor(ColorManager.commentColor)));
+			new Token(new TextAttribute( manager.getColor(ColorManager.COMMENT_COLOR)));
 		rules[3] = new EndOfLineRule("//", commentRule);
 		
 		//String rule
 		IToken stringRule =
-			new Token(new TextAttribute( manager.getColor(ColorManager.stringColor)));
+			new Token(new TextAttribute( manager.getColor(ColorManager.STRING_COLOR)));
 		rules[4] = new SingleLineRule("\"", "\"", stringRule);
 		
 		//Default Rule
 		IToken defaultRule =
-			new Token( new TextAttribute(manager.getColor(ColorManager.defaultColor)));
+			new Token( new TextAttribute(manager.getColor(ColorManager.DEFAULT_COLOR)));
 		WordRule typewr = new WordRule(new EntityDefaultDetector(), defaultRule);	
 
 		//Type Rule			
 		IToken typeRule =
-			new Token( new TextAttribute(manager.getColor(ColorManager.typeColor)));
+			new Token( new TextAttribute(manager.getColor(ColorManager.TYPE_COLOR)));
 		for (String str : EditorsUtils.getProperty("entity.types").split(",")){
 			typewr.addWord(str, typeRule);
 		}
 		
 		//Validation Rule
 		IToken validationRule =
-			new Token( new TextAttribute(manager.getColor(ColorManager.validationColor)));
+			new Token( new TextAttribute(manager.getColor(ColorManager.VALIDATION_COLOR)));
 		for (String str : EditorsUtils.getProperty("validation.rules").split(",")){
 			typewr.addWord(str, validationRule);
 		}			

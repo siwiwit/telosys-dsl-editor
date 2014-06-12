@@ -13,12 +13,12 @@ import org.eclipse.swt.widgets.Display;
  */
 public class ColorManager {
 
-	public final static RGB entityColor = new RGB(255,0,0);
-	public final static RGB validationColor = new RGB(0,50,200);
-	public final static RGB commentColor = new RGB(50,200,50);
-	public final static RGB typeColor = new RGB(153,0,153);
-	public final static RGB stringColor = new RGB(0,50,200);
-	public final static RGB defaultColor = new RGB(0,0,0);
+	public final static RGB ENTITY_COLOR = new RGB(255,0,0);
+	public final static RGB VALIDATION_COLOR = new RGB(0,50,200);
+	public final static RGB COMMENT_COLOR = new RGB(50,200,50);
+	public final static RGB TYPE_COLOR = new RGB(153,0,153);
+	public final static RGB STRING_COLOR = new RGB(0,50,200);
+	public final static RGB DEFAULT_COLOR = new RGB(0,0,0);
 	
     protected Map<RGB,Color> fColorTable = new HashMap<RGB,Color>(10);
 

@@ -8,6 +8,8 @@ import org.eclipse.jface.text.rules.IWordDetector;
  */
 public class EnumDefaultDetector implements IWordDetector{
 	
+	private final String nonAccept = " \t\n\r#@/(\"";
+	
 	@Override
 	public boolean isWordStart(char c) {
 		return true;
@@ -15,7 +17,6 @@ public class EnumDefaultDetector implements IWordDetector{
 
 	@Override
 	public boolean isWordPart(char c) {
-		return !(c == ' ' || c == '\t' || c == '\n' || 
-				 c == '\r' || c == '#' || c == '@' || c=='/' || c=='(' || c=='"' );
+		return nonAccept.indexOf(c) == -1;
 	}
 }

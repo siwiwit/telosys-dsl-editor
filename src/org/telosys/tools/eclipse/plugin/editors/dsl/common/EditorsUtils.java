@@ -30,9 +30,9 @@ public class EditorsUtils {
             InputStream propertiesStream = EditorsUtils.class.getResourceAsStream("/config.properties");
             properties.load(propertiesStream);
         } catch (FileNotFoundException e) {
-            throw new EditorsException("Error while loading the properties file : " + e.getMessage());
+            throw new EditorsException("Error while loading the properties file : " + e);
         } catch (IOException e) {
-            throw new EditorsException("Error while loading the properties file : " + e.getMessage());
+            throw new EditorsException("Error while loading the properties file : " + e);
         }
     }
     

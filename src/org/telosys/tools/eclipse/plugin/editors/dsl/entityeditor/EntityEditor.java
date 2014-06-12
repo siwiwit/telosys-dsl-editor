@@ -22,10 +22,6 @@ public class EntityEditor extends TextEditor {
 		setSourceViewerConfiguration(new EntityEditorConfiguration());
 	}
 
-	public void dispose() {
-		super.dispose();
-	}
-
 	protected void createActions() throws EditorsException {
 		super.createActions();
 		ResourceBundle resourceBundle = null;
@@ -34,7 +30,7 @@ public class EntityEditor extends TextEditor {
 					new StringBufferInputStream(
 							"ContentAssistProposal.label=Content assist\nContentAssistProposal.tooltip=Content assist\nContentAssistProposal.description=Provides Content Assistance"));
 		} catch (IOException e) {
-			throw new EditorsException("Error while creating the autocompletion : " + e.getMessage());
+			throw new EditorsException("Error while creating the autocompletion : " + e);
 		}
 		ContentAssistAction action = new ContentAssistAction(resourceBundle,
 				"ContentAssistProposal.", this);

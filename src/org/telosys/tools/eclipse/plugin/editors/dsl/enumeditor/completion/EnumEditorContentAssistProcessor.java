@@ -3,6 +3,7 @@ package org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.completion;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.contentassist.CompletionProposal;
@@ -11,7 +12,7 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
-import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
+import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
 
 public class EnumEditorContentAssistProcessor implements IContentAssistProcessor {
 
@@ -37,9 +38,9 @@ public class EnumEditorContentAssistProcessor implements IContentAssistProcessor
 				currWord = currChar + currWord;
 				currOffset--;
 			}
-		} catch (org.eclipse.jface.text.BadLocationException e1) {
-			throw new EditorsException("Error while proposing a word : "
-					+ e1.getMessage());
+		} catch (BadLocationException e1) {
+			throw new EnumEditorException("Error while proposing a word : "
+					+ e1);
 		}
 
 		List<String> suggestions = wordProvider.suggest(currWord);
@@ -50,8 +51,8 @@ public class EnumEditorContentAssistProcessor implements IContentAssistProcessor
 				proposals = buildProposals(suggestions, currWord,
 						documentOffset - currWord.length());
 			} catch (Exception e) {
-				throw new EditorsException("Error while proposing a word : "
-						+ e.getMessage());
+				throw new EnumEditorException("Error while proposing a word : "
+						+ e);
 			}
 		}
 		return proposals;
