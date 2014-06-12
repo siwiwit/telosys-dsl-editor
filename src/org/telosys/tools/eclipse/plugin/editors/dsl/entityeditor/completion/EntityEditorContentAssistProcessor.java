@@ -28,7 +28,7 @@ public class EntityEditorContentAssistProcessor implements
     public ICompletionProposal[] computeCompletionProposals(
             ITextViewer textViewer, int documentOffset) {
         IDocument document = textViewer.getDocument();
-        int currOffset = documentOffset - 1;
+        int currOffset = documentOffset > 0 ? documentOffset - 1 : documentOffset;
 
         String currWord = "";
 
@@ -149,21 +149,33 @@ public class EntityEditorContentAssistProcessor implements
         return lastError;
     }
 
-    public int chooseContext(String word) {
-        String reverseWord = new StringBuilder(word).reverse().toString();
-        int indexType = reverseWord.indexOf(':');
-        int indexAnnotation = reverseWord.indexOf('{');
-        if (reverseWord.charAt(0) == '[' || indexType == -1
-                && indexAnnotation == -1) {
-            return EditorsUtils.DEFAULT;
-        } else if (indexType == -1 && indexAnnotation != -1) {
-            return EditorsUtils.ANNOTATION;
-        } else if (indexAnnotation == -1 && indexType != -1) {
-            return EditorsUtils.TYPE;
-        } else {
-            return indexAnnotation < indexType ? EditorsUtils.ANNOTATION
-                    : EditorsUtils.TYPE;
-        }
+    /***
+     * 
+     * @param line : the line of the current word
+     * @return the type of context DEFAULT, ANNOTATION, TYPE
+     */
+    public int chooseContext(String line) {
+    	
+    	// empty line
+    	if (line.length() == 0){
+    		return EditorsUtils.DEFAULT;
+    	} else {    	
+	        String reverseWord = new StringBuilder(line).reverse().toString();
+	        int indexType = reverseWord.indexOf(':');
+	        int indexAnnotation = reverseWord.indexOf('{');
+	        
+	        if (reverseWord.charAt(0) == '[' || indexType == -1
+	                && indexAnnotation == -1) {
+	            return EditorsUtils.DEFAULT;
+	        } else if (indexType == -1 && indexAnnotation != -1) {
+	            return EditorsUtils.ANNOTATION;
+	        } else if (indexAnnotation == -1 && indexType != -1) {
+	            return EditorsUtils.TYPE;
+	        } else {
+	            return indexAnnotation < indexType ? EditorsUtils.ANNOTATION
+	                    : EditorsUtils.TYPE;
+	        }
+    	}
 
     }
 }
