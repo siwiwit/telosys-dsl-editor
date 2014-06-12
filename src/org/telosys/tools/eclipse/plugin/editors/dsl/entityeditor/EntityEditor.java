@@ -17,26 +17,26 @@ import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsException;
 @SuppressWarnings("deprecation")
 public class EntityEditor extends TextEditor {
 
-	public EntityEditor() {
-		super();
-		setSourceViewerConfiguration(new EntityEditorConfiguration());
-	}
+    public EntityEditor() {
+        super();
+        setSourceViewerConfiguration(new EntityEditorConfiguration());
+    }
 
-	protected void createActions() throws EditorsException {
-		super.createActions();
-		ResourceBundle resourceBundle = null;
-		try {
-			resourceBundle = new PropertyResourceBundle(
-					new StringBufferInputStream(
-							"ContentAssistProposal.label=Content assist\nContentAssistProposal.tooltip=Content assist\nContentAssistProposal.description=Provides Content Assistance"));
-		} catch (IOException e) {
-			throw new EditorsException(
-					"Error while creating the autocompletion : " + e);
-		}
-		ContentAssistAction action = new ContentAssistAction(resourceBundle,
-				"ContentAssistProposal.", this);
-		action.setActionDefinitionId(ITextEditorActionDefinitionIds.CONTENT_ASSIST_PROPOSALS);
-		setAction("ContentAssist", action);
-	}
+    protected void createActions() throws EditorsException {
+        super.createActions();
+        ResourceBundle resourceBundle = null;
+        try {
+            resourceBundle = new PropertyResourceBundle(
+                    new StringBufferInputStream(
+                            "ContentAssistProposal.label=Content assist\nContentAssistProposal.tooltip=Content assist\nContentAssistProposal.description=Provides Content Assistance"));
+        } catch (IOException e) {
+            throw new EditorsException(
+                    "Error while creating the autocompletion : " + e);
+        }
+        ContentAssistAction action = new ContentAssistAction(resourceBundle,
+                "ContentAssistProposal.", this);
+        action.setActionDefinitionId(ITextEditorActionDefinitionIds.CONTENT_ASSIST_PROPOSALS);
+        setAction("ContentAssist", action);
+    }
 
 }

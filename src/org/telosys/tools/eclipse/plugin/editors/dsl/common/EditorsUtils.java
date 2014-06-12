@@ -10,35 +10,40 @@ import java.util.Properties;
  * 
  */
 public final class EditorsUtils {
-	
+
     private static Properties properties;
-    
-    private EditorsUtils() {    	
+
+    private EditorsUtils() {
     }
-    
+
     public static String getProperty(String propertyName) {
         if (properties == null) {
             EditorsUtils.loadPropertiesFile();
         }
         String property = properties.getProperty(propertyName);
-        if(null == property){
-        	throw new EditorsException("Incorrect property file. Missing property name : " + propertyName);
+        if (null == property) {
+            throw new EditorsException(
+                    "Incorrect property file. Missing property name : "
+                            + propertyName);
         }
         return property;
     }
 
-    private static void loadPropertiesFile(){
+    private static void loadPropertiesFile() {
         properties = new Properties();
         try {
-            InputStream propertiesStream = EditorsUtils.class.getResourceAsStream("/config.properties");
+            InputStream propertiesStream = EditorsUtils.class
+                    .getResourceAsStream("/config.properties");
             properties.load(propertiesStream);
         } catch (FileNotFoundException e) {
-            throw new EditorsException("Error while loading the properties file : " + e);
+            throw new EditorsException(
+                    "Error while loading the properties file : " + e);
         } catch (IOException e) {
-            throw new EditorsException("Error while loading the properties file : " + e);
+            throw new EditorsException(
+                    "Error while loading the properties file : " + e);
         }
     }
-    
+
     /*
      * Constant variable for the context of auto-completion
      */

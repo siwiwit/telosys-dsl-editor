@@ -18,43 +18,43 @@ import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorExcepti
  */
 public class EnumScanner extends RuleBasedScanner {
 
-	public EnumScanner(ColorManager manager) throws EnumEditorException {
+    public EnumScanner(ColorManager manager) throws EnumEditorException {
 
-		IRule[] rules = new IRule[5];
+        IRule[] rules = new IRule[5];
 
-		// Add generic whitespace rule.
-		rules[0] = new WhitespaceRule(new EnumWhitespaceDetector());
+        // Add generic whitespace rule.
+        rules[0] = new WhitespaceRule(new EnumWhitespaceDetector());
 
-		// Entity Rule - MAJ
-		IToken entityRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.ENTITY_COLOR)));
-		rules[1] = new WordRule(new EnumObjectDetector(), entityRule);
+        // Entity Rule - MAJ
+        IToken entityRule = new Token(new TextAttribute(
+                manager.getColor(ColorManager.ENTITY_COLOR)));
+        rules[1] = new WordRule(new EnumObjectDetector(), entityRule);
 
-		// Comment rule
-		IToken commentRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.COMMENT_COLOR)));
-		rules[2] = new EndOfLineRule("//", commentRule);
+        // Comment rule
+        IToken commentRule = new Token(new TextAttribute(
+                manager.getColor(ColorManager.COMMENT_COLOR)));
+        rules[2] = new EndOfLineRule("//", commentRule);
 
-		// String rule
-		IToken stringRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.STRING_COLOR)));
-		rules[3] = new SingleLineRule("\"", "\"", stringRule);
+        // String rule
+        IToken stringRule = new Token(new TextAttribute(
+                manager.getColor(ColorManager.STRING_COLOR)));
+        rules[3] = new SingleLineRule("\"", "\"", stringRule);
 
-		// Default Rule
-		IToken defaultRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.DEFAULT_COLOR)));
-		WordRule typewr = new WordRule(new EnumDefaultDetector(), defaultRule);
+        // Default Rule
+        IToken defaultRule = new Token(new TextAttribute(
+                manager.getColor(ColorManager.DEFAULT_COLOR)));
+        WordRule typewr = new WordRule(new EnumDefaultDetector(), defaultRule);
 
-		// Type Rule
-		IToken typeRule = new Token(new TextAttribute(
-				manager.getColor(ColorManager.TYPE_COLOR)));
-		for (String str : EditorsUtils.getProperty("enum.types").split(",")) {
-			typewr.addWord(str, typeRule);
-		}
+        // Type Rule
+        IToken typeRule = new Token(new TextAttribute(
+                manager.getColor(ColorManager.TYPE_COLOR)));
+        for (String str : EditorsUtils.getProperty("enum.types").split(",")) {
+            typewr.addWord(str, typeRule);
+        }
 
-		rules[4] = typewr;
+        rules[4] = typewr;
 
-		setRules(rules);
+        setRules(rules);
 
-	}
+    }
 }
