@@ -16,7 +16,7 @@ import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
 import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
 
 /*
- * TODO : establishment of the context system to improve the actual method
+ * TODO : establishment of the context system to improve / replace the actual method
  */
 public class EntityEditorContentAssistProcessor implements
         IContentAssistProcessor {
@@ -31,7 +31,8 @@ public class EntityEditorContentAssistProcessor implements
     public ICompletionProposal[] computeCompletionProposals(
             ITextViewer textViewer, int documentOffset) {
         IDocument document = textViewer.getDocument();
-        int currOffset = documentOffset > 0 ? documentOffset - 1 : documentOffset;
+        int currOffset = documentOffset > 0 ? documentOffset - 1
+                : documentOffset;
 
         String currWord = "";
 
@@ -154,31 +155,31 @@ public class EntityEditorContentAssistProcessor implements
 
     /***
      * 
-     * @param line : the line of the current word
+     * @param line
+     *            : the line of the current word
      * @return the type of context DEFAULT, ANNOTATION, TYPE
      */
     public int chooseContext(String line) {
-    	
-    	// empty line
-    	if (line.length() == 0){
-    		return EditorsUtils.DEFAULT;
-    	} else {    	
-	        String reverseWord = new StringBuilder(line).reverse().toString();
-	        int indexType = reverseWord.indexOf(':');
-	        int indexAnnotation = reverseWord.indexOf('{');
-	        
-	        if (reverseWord.charAt(0) == '[' || indexType == -1
-	                && indexAnnotation == -1) {
-	            return EditorsUtils.DEFAULT;
-	        } else if (indexType == -1 && indexAnnotation != -1) {
-	            return EditorsUtils.ANNOTATION;
-	        } else if (indexAnnotation == -1 && indexType != -1) {
-	            return EditorsUtils.TYPE;
-	        } else {
-	            return indexAnnotation < indexType ? EditorsUtils.ANNOTATION
-	                    : EditorsUtils.TYPE;
-	        }
-    	}
 
+        // empty line
+        if (line.length() == 0) {
+            return EditorsUtils.DEFAULT;
+        } else {
+            String reverseWord = new StringBuilder(line).reverse().toString();
+            int indexType = reverseWord.indexOf(':');
+            int indexAnnotation = reverseWord.indexOf('{');
+
+            if (reverseWord.charAt(0) == '[' || indexType == -1
+                    && indexAnnotation == -1) {
+                return EditorsUtils.DEFAULT;
+            } else if (indexType == -1 && indexAnnotation != -1) {
+                return EditorsUtils.ANNOTATION;
+            } else if (indexAnnotation == -1 && indexType != -1) {
+                return EditorsUtils.TYPE;
+            } else {
+                return indexAnnotation < indexType ? EditorsUtils.ANNOTATION
+                        : EditorsUtils.TYPE;
+            }
+        }
     }
 }
