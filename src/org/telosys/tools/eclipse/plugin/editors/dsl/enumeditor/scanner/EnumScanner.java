@@ -16,6 +16,12 @@ import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorExcepti
 /**
  * Scanner rules.
  */
+/*
+ * TODO : Implement a ITypedRegion System or IDocumentPartitioner to apply the good coloration type
+ * and use this in the completion method
+ * http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Feditors_documents.htm 
+ * https://www.eclipse.org/eclipse/platform-text/eclipseCon/talk.pdf
+ */
 public class EnumScanner extends RuleBasedScanner {
 
     public EnumScanner(ColorManager manager) throws EnumEditorException {

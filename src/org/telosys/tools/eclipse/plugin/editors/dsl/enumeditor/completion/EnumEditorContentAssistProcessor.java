@@ -14,6 +14,10 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
 import org.telosys.tools.eclipse.plugin.editors.dsl.enumeditor.EnumEditorException;
 
+/*
+ * TODO : establishment of the context system to not propose the completion
+ * between "{ }" and only propose after " : " (ITypedRegion or IDocumentPartitioner)
+ */
 public class EnumEditorContentAssistProcessor implements
         IContentAssistProcessor {
 

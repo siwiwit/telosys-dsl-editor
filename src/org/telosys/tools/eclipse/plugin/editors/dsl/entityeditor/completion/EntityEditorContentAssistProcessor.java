@@ -15,6 +15,9 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 import org.telosys.tools.eclipse.plugin.editors.dsl.common.EditorsUtils;
 import org.telosys.tools.eclipse.plugin.editors.dsl.entityeditor.EntityEditorException;
 
+/*
+ * TODO : establishment of the context system to improve the actual method
+ */
 public class EntityEditorContentAssistProcessor implements
         IContentAssistProcessor {
 
